@@ -12,33 +12,34 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
     function ChatInput(){
-            return (
-                <>
-                    <input 
-                    placeholder="Send a message to chatbot" 
-                    size="30" 
-                    />
-                    <button>Send</button>
-                </>
-            );
-        }
+        return (
+            <>
+                <input 
+                placeholder="Send a message to chatbot" 
+                size="30" 
+                />
+                <button>Send</button>
+            </>
+        );
+    }
 
     function ChatMessage({message,sender}) {
-            return (
-                <div>
-                    {sender ==='robot' && (
-                        <img src="robot.png" width="50" />
-                    )}
-                    {message}
-                    {sender ==='user' && (
-                        <img src="user.png" width="50" />
-                    )}
-                </div>
-            );
-        }
+        return (
+            <div>
+                {sender ==='robot' && (
+                    <img src="robot.png" width="50" />
+                )}
+                {message}
+                {sender ==='user' && (
+                    <img src="user.png" width="50" />
+                )}
+            </div>
+        );
+    }
 
     function ChatMessages () {
-        const chatMessages=[
+        const array=React.useState( //useState return an array
+        [
         {
             message:'hello chatbot',
             sender:'user',
@@ -59,10 +60,26 @@
             sender: 'robot',
             id:'id4'
         }
-        ]; 
+        ]);
+
+        const chatMessages=array[0]; //current data
+        const setChatMessages=array[1]; //updater function
+
+        function sendMessage() {
+            setChatMessages([
+            ...chatMessages, //spread operator
+            {
+                message:'test', 
+                sender:'user', 
+                id: crypto.randomUUID()
+            }
+            ]); 
+        }
 
         return (
             <>
+            <button onClick={sendMessage}>Send message</button>
+
             {chatMessages.map((chatMessage)=>{
                 return (
                     <ChatMessage 
