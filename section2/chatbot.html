@@ -51,37 +51,52 @@
             );
         }
 
-        function App(){
+        function chatMessages () {
             const chatMessages=[
             {
                 message:'hello chatbot',
-                sender:'user'
+                sender:'user',
+                id:'id1'
             },
             {
                 message:'How can I help you?', 
-                sender: 'robot'
+                sender: 'robot',
+                id:'id2'
             }, 
             {
                 message: 'Can you get me todays date',
-                sender:'user'
+                sender:'user',
+                id:'id3'
             }, 
             {
                 message: 'Today is 10 June', 
-                sender: 'robot'
+                sender: 'robot',
+                id:'id4'
             }
             ]; 
+
+            return (
+                <>
+                {chatMessages.map((chatMessage)=>{
+                            return (
+                                <ChatMessage 
+                                message={chatMessage.message} 
+                                sender={chatMessage.sender}
+                                key={chatMessage.id}
+                                />
+                            );
+                        })}
+                </>
+            )
+        }
+
+        function App(){
             
+
             return (
                 <>
                     <ChatInput />
-                    {chatMessages.map((chatMessage)=>{
-                        return (
-                            <ChatMessage 
-                            message={chatMessage.message} 
-                            sender={chatMessage.sender}
-                            />
-                        );
-                    })}
+                    
                 </>
             ); 
         }
