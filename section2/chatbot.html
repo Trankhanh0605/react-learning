@@ -62,8 +62,9 @@
         }
         ]);
 
-        const chatMessages=array[0]; //current data
-        const setChatMessages=array[1]; //updater function
+        const [chatMessages, setChatMessages]=array; 
+        //const chatMessages=array[0]; //current data
+        //const setChatMessages=array[1]; //updater function
 
         function sendMessage() {
             setChatMessages([
