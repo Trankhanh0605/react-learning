@@ -12,18 +12,30 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
-        
+    function ProductDetails (props) {
+      const name=props.name; 
+      const price=props.price;
+      return (
+        <>
+          <p>{name}</p>
+          <p>Price: ${price}</p>
+          <button>Add to Cart</button>
+        </>
+      ); 
+    }
 
-        function App(){
-            return (
-                <>
-                   
-                </>
-            ); 
-        }
-
-      const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(<App />);
+    function App(){
+        return (
+            <>
+               <ProductDetails name="Cotton socks" price="10.90" />
+               <ProductDetails name="Tennis balls" price="6.00" />
+               <ProductDetails name="Plain T-shirt" price="7.99" />
+            </>
+        ); 
+    }
+      
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
 </html>
