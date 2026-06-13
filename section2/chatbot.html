@@ -11,7 +11,7 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-    function ChatInput(){
+    function ChatInput({chatMessages, setChatMessages}){
         const [inputText, setInputText]=React.useState('');
         function saveInputText(event){
             setInputText(event.target.value); 
@@ -53,7 +53,7 @@
         );
     }
 
-    function ChatMessages () {
+    function ChatMessages ({chatMessages}) {
         return (
             <>
             {chatMessages.map((chatMessage)=>{
@@ -70,6 +70,7 @@
     }
 
     function App(){
+        // relift the state into app, that can be shared into <App>'s components
         const [chatMessages, setChatMessages]=React.useState( //useState return an array
         [
         {
@@ -96,7 +97,7 @@
         return (
             <>
                 <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} />
-                <ChatMessages />
+                <ChatMessages chatMessages={chatMessages} />
             </>
         ); 
     }
