@@ -13,11 +13,18 @@
   <script type="text/babel">   
   
   function App(){
-    
-
+    const [inputText, setInputText]=React.useState('');
+    function saveInputText(event){
+      setInputText(event.target.value)
+    }
     return (
       <>
-         
+        <input 
+        placeholder="Type a name here"
+        onChange={saveInputText}
+        value={inputText}
+        />
+        <p> Hello {inputText} </p>
       </>
     );
   }
