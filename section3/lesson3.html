@@ -21,6 +21,15 @@
           </button>
       ); 
   }
+
+  function Reset({setCount}){
+    function destroyCount() {
+      setCount(0);
+    }
+    return (
+      <button onClick={destroyCount}> Reset </button>
+    );
+  }
   function App(){
     const [count, setCount]=React.useState(0); 
 
@@ -28,6 +37,7 @@
       <>
         <Counter count={count} setCount={setCount} />
         <Counter count={count} setCount={setCount} />
+        <Reset setCount={setCount} />
       </>
     );
   }
