@@ -2,6 +2,21 @@
 <html>
   <head>
     <title>Chatbot</title>
+    <style>
+        .send-button{
+            background-color: rgb(25,135,84);
+            color: white;
+            padding: 12px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px; 
+            cursor: pointer;
+        }
+        .chat-input{
+            
+        }
+    </style>
   </head>
   <body>
     <div class="js-container"></div>
@@ -48,8 +63,12 @@
                 size="30" 
                 onChange={saveInputText}
                 value={inputText}
+                className="chat-input"
                 />
-                <button onClick={sendMessage}>Send</button>
+                <button 
+                onClick={sendMessage}
+                className="send-button"
+                >Send</button>
             </>
         );
     }
