@@ -11,6 +11,25 @@
     
   <script src="https://unpkg.com/supersimpledev/babel.js"></script>
   <script type="text/babel">   
+  function Reset({setInputText}){
+    function reset(){
+      setInputText('')
+    }
+    return (
+      <button onClick={reset}>Reset</button>
+    );
+  }
+
+  function Example({setInputText}) {
+    function example() {
+      setInputText('John'); 
+    }
+    return (
+      <>
+        <button onClick={example}>Example</button>
+      </>
+    );
+  }
   
   function App(){
     const [inputText, setInputText]=React.useState('');
@@ -24,6 +43,8 @@
         onChange={saveInputText}
         value={inputText}
         />
+        <Reset setInputText={setInputText} />
+        <Example setInputText={setInputText} />
         <p> Hello {inputText} </p>
       </>
     );
