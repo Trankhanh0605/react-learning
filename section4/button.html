@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Count</title>
+  <title>Button</title>
+  <style>
+    .button{
+      background-color: rgb(25,135,84);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      border-width: 0px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <div class="js-container"></div>
@@ -13,10 +23,9 @@
   <script type="text/babel">   
   
   function App(){
-    
     return (
       <>
-        
+        <button className="button">ON</button>
       </>
     );
   }
