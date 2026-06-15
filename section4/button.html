@@ -8,7 +8,7 @@
       color: white;
       padding: 10px 15px;
       border-radius: 5px;
-      border-width: 0px;
+      border:none;
       cursor: pointer;
     }
   </style>
@@ -21,11 +21,16 @@
     
   <script src="https://unpkg.com/supersimpledev/babel.js"></script>
   <script type="text/babel">   
-  
   function App(){
+    const [isButtonOn, setIsButtonOn]=React.useState(true);
+    function switchButtonOn(){
+      setIsButtonOn(!isButtonOn)
+    }
     return (
       <>
-        <button className="button">ON</button>
+        <button className="button" onClick={switchButtonOn}>
+          {isButtonOn? 'ON':'OFF'}
+        </button>
       </>
     );
   }
