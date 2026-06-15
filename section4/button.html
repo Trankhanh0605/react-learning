@@ -11,6 +11,22 @@
       border:none;
       cursor: pointer;
     }
+    .on-state{
+      background-color: rgb(25,135,84);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      border:none;
+      cursor: pointer;
+    }
+    .off-state{
+      background-color: rgb(220,53,69);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      border:none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -28,7 +44,10 @@
     }
     return (
       <>
-        <button className="button" onClick={switchButtonOn}>
+        <button 
+        className={isButtonOn? 'on-state':'off-state'}
+        onClick={switchButtonOn}
+        >
           {isButtonOn? 'ON':'OFF'}
         </button>
       </>
