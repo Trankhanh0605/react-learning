@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My website</title>
+    <title>React Basics</title>
   </head>
   <body>
     <div class="js-container"></div>
@@ -11,26 +11,29 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
+      function LoginForm() {
+        return (
+          <>
+            <div>
+              <input placeholder="Email" />
+            </div>
+            <div>
+              <input placeholder="Password" type="password" />
+            </div>
+            <button>Login</button>
+            <button>Sign up</button>
+          </>
+        );
+      }
 
-        function LoginForm() {
-            return (
-                <>
-                    <p>Hello, welcome to my website</p>
-                    <div><input placeholder="Email" /></div>
-                    <div><input placeholder="Password" type="password" /></div>
-                    <button>Login</button>
-                    <button>Sign up</button>
-                </>
-            ); 
-        }
-
-        function App(){
-            return (
-                <>
-                    <LoginForm />
-                </>
-            ); 
-        }
+      function App() {
+        return (
+          <>
+            <p>Hello, welcome to my website</p>
+            <LoginForm />
+          </>
+        );
+      }
 
       const container = document.querySelector('.js-container');
       ReactDOM.createRoot(container).render(<App />);
