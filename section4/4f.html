@@ -15,6 +15,7 @@
         React.useEffect(()=>{
           setInterval(()=>{
             setTime(dayjs().format('HH:mm:ss'));
+            console.log('runcode')
           },1000);
         },[]);
         return (
