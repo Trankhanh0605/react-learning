@@ -11,33 +11,45 @@
     
   <script src="https://unpkg.com/supersimpledev/babel.js"></script>
   <script type="text/babel">   
-  function Counter({count,setCount}){
-    function increaseCount(){
-      setCount(count=>count+1)
-    }
-      return (
-          <button onClick={increaseCount}>
-            Clicked {count} {(count===1)? 'time': 'times'}
-          </button>
-      ); 
-  }
-
-  function Reset({setCount}){
-    function destroyCount() {
-      setCount(0);
-    }
-    return (
-      <button onClick={destroyCount}> Reset </button>
-    );
-  }
+  
   function App(){
     const [count, setCount]=React.useState(0); 
+    const buttonRef=React.useRef();
+    function increaseCount(){
+      setCount(count+1);
+    }
+    function resetCount(){
+      setCount(0);
+    }
+    function autoClick(){
+      setInterval(()=>
+      {
+        const buttonElem=buttonRef.current;
+        if (buttonElem) {
+          buttonElem.click();
+        }
+      },1000);
+    }
 
     return (
       <>
-        <Counter count={count} setCount={setCount} />
-        <Counter count={count} setCount={setCount} />
-        <Reset setCount={setCount} />
+        <button
+        onClick={increaseCount}
+        ref={buttonRef}
+        >
+          Clicked {count} {(count===1 || count===0)? 'time':'times'}
+        </button>
+
+        <button
+        onClick={resetCount}
+        >
+          Reset
+        </button>
+
+        <button
+        onClick={autoClick}
+        >Auto Click
+        </button>
       </>
     );
   }
