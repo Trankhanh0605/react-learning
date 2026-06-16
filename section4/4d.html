@@ -27,6 +27,9 @@
       cursor: pointer;
       margin-top: 10px;
     }
+    .show-button{
+      margin-left: 10px;
+    }
   </style>
   <body>
     <div class="js-container"></div>
@@ -37,6 +40,10 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
       function LoginForm() {
+        const [showPassword, setShowPassWord]=React.useState(false)
+        function showPasswordOrNot(){
+          setShowPassWord(!showPassword)
+        }
         return (
           <>
             <div>
@@ -48,9 +55,16 @@
             <div>
               <input 
               placeholder="Password" 
-              type="password" 
+              type={showPassword ? 'text':'password'}
               className="login-input"
               />
+              
+              <button
+              className="show-button" 
+              onClick={showPasswordOrNot}
+              >
+                {showPassword? 'Hide':'Show'}
+              </button> 
             </div>
             <button
             className="login-button"
