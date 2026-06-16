@@ -3,6 +3,31 @@
   <head>
     <title>My Website</title>
   </head>
+  <style>
+    body{
+      font-family: Arial;
+    }
+    .title{
+      font-size: 25px;
+    }
+    .login-input{
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border-width: 1px;
+      width: 200px;
+    }
+    .login-button{
+      background-color: rgb(0,123,255);
+      color: white;
+      margin-right: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
   <body>
     <div class="js-container"></div>
 
@@ -15,13 +40,24 @@
         return (
           <>
             <div>
-              <input placeholder="Email" />
+              <input 
+              placeholder="Email" 
+              className="login-input" 
+              />
             </div>
             <div>
-              <input placeholder="Password" type="password" />
+              <input 
+              placeholder="Password" 
+              type="password" 
+              className="login-input"
+              />
             </div>
-            <button>Login</button>
-            <button>Sign up</button>
+            <button
+            className="login-button"
+            >Login</button>
+            <button
+            className="login-button"
+            >Sign up</button>
           </>
         );
       }
