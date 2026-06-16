@@ -64,6 +64,10 @@
             overflow: scroll;
             scrollbar-width: none;
         }
+        .welcome-message{
+            color: rgb(120, 120, 120);
+            text-align: center;
+        }
     </style>
   </head>
   <body>
@@ -178,6 +182,8 @@
         ]);
         return (
             <div className="app-container">
+                {chatMessages.length===0 && 
+                    (<p className="welcome-message">Hello, welcome to the site</p>)}
                 <ChatMessages 
                 chatMessages={chatMessages} 
                 />
