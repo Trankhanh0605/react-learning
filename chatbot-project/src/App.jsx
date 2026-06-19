@@ -2,6 +2,7 @@ import { useState} from 'react'
 
 import {ChatInput} from './components/ChatInput.jsx';
 import { ChatMessage } from './components/ChatMessage.jsx';
+import {ChatMessages} from './components/ChatMessages.jsx';
 
 import './App.css'
 
