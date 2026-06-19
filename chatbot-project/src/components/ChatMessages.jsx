@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
-export function ChatMessages ({chatMessages}) {
+import { ChatMessage } from "./ChatMessage.jsx";
+
+function ChatMessages ({chatMessages}) {
   const chatMessagesRef=useRef(null);
   useEffect(()=>{
     const containerElem=chatMessagesRef.current;
@@ -23,3 +25,5 @@ export function ChatMessages ({chatMessages}) {
     </div>
   )
 }
+
+export default ChatMessages;
