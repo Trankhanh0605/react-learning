@@ -34,7 +34,7 @@ Always execute commands relative to the `chatbot-project/` directory or specify 
 
 ## High-Level Architecture (Vite + React App)
 
-- **Entry Point:** `chatbot-project/index.html` -> `src/main.jsx` -> `src/App.jsx`.
+- **Entry Point:** `chatbot-project//` -> `src/main.jsx` -> `src/App.jsx`.
 - **Component Breakdown:**
   - `src/main.jsx`: Bootstrapping the React app.
   - `src/App.jsx`: State management (such as `chatMessages`) and high-level layout.

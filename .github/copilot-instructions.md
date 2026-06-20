@@ -26,7 +26,7 @@ Tests
 High-level architecture (big picture)
 
 - Top-level: this repo is a learning workspace. The runnable web app is under chatbot-project/.
-- Frontend stack: Vite (dev server + build) + React. Entry: chatbot-project/index.html -> src/main.jsx.
+- Frontend stack: Vite (dev server + build) + React. Entry: chatbot-project// -> src/main.jsx.
 - App structure (key files):
   - src/main.jsx: React app bootstrap (createRoot)
   - src/App.jsx: top-level component that holds chatMessages state and composes UI
