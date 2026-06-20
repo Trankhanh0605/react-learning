@@ -6,7 +6,7 @@ function App() {
   return (
     <Routes>
       <Route index element={<HomePage />} />
-      <Route path="checkout" element={<div>Test checkout Page</div>} />
+      <Route path="checkout" element={<CheckoutPage />} />
     </Routes>
   )
 }
