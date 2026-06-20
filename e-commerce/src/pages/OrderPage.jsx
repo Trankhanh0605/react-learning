@@ -2,6 +2,7 @@ import './OrderPage.css';
 function OrderPage() {
   return (
     <>
+    <title>Orders</title>
       <div className="header">
         <div className="left-section">
           <a href="/" className="header-link">
