@@ -1,21 +1,22 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Header from '../components/Header';
-import formatMoney from '../utils/money';
+import Header from '../../components/Header';
+import formatMoney from '../../utils/money';
 import './HomePage.css';
-function HomePage({cart}) {
+
+function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
-  
+
   useEffect(() => {
     axios.get('/api/products').then((response) => {
       setProducts(response.data)
     });
   }, [])
-  
+
   return (
     <>
       <title>Ecommerce</title>
-      <Header cart={cart} /> 
+      <Header cart={cart} />
       {/* need to pass a prop to the header because cart quantity is inside the header */}
       <div className="home-page">
         <div className="products-grid">
