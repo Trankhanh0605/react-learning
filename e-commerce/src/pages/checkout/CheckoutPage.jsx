@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react';
 import formatMoney from '../../utils/money';
 import './CheckoutPage.css';
 import CheckoutHeader from './CheckoutHeader';
+
 function CheckoutPage({ cart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
+  
   useEffect(() => {
     axios.get('/api/delivery-options?expand=estimatedDeliveryTime').then((response) => {
       setDeliveryOptions(response.data)
