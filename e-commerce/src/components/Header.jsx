@@ -1,12 +1,12 @@
-import './Header.css'; 
-import {Link, NavLink} from 'react-router';
-function Header({cart}) {
-  let totalQuantity=0;
-  
-  cart.forEach((cartItem)=>{
-    totalQuantity+=cartItem.quantity;
+import './Header.css';
+import { Link, NavLink } from 'react-router';
+function Header({ cart }) {
+  let totalQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    totalQuantity += cartItem.quantity;
   })
-  
+
   return (
     <>
       <div className="header">
@@ -29,7 +29,6 @@ function Header({cart}) {
 
         <div className="right-section">
           <NavLink className="orders-link header-link" to="/orders">
-
             <span className="orders-text">Orders</span>
           </NavLink>
 
