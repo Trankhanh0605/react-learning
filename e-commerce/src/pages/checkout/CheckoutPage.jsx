@@ -8,15 +8,16 @@ import PaymentSummary from './PaymentSummary';
 function CheckoutPage({ cart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
-  
-  useEffect(() => {
-    axios.get('/api/delivery-options?expand=estimatedDeliveryTime').then((response) => {
-      setDeliveryOptions(response.data)
-    })
 
-    axios.get('/api/payment-summary').then((response) => {
-      setPaymentSummary(response.data)
-    })
+  useEffect(() => {
+    // use let to reuse variable
+    const fetchCheckOutdata = async () => {
+      let response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime');
+      setDeliveryOptions(response.data);
+      response = await axios.get('/api/payment-summary');
+      setPaymentSummary(response.data);
+    }
+    fetchCheckOutdata();
   }, [])
 
   return (
