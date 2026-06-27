@@ -1,5 +1,5 @@
 import OrderHeader from './OrderHeader';
-import OrderDetailesGrid from './OrderDetailsGrid';
+import OrderDetailsGrid from './OrderDetailsGrid';
 function OrdersGrid({orders}) {
   return (
     <div className="orders-grid">
@@ -9,7 +9,7 @@ function OrdersGrid({orders}) {
 
             <OrderHeader order={order} />
 
-            <OrderDetailesGrid order={order} />
+            <OrderDetailsGrid order={order} />
           </div>
         );
       })}
