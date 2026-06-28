@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import ProductsGrid from './ProductsGrid';
 import './HomePage.css';
 
-function HomePage({ cart }) {
+function HomePage({ cart , getCartItems}) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function HomePage({ cart }) {
       <Header cart={cart} />
       {/* need to pass a prop to the header because cart quantity is inside the header */}
       <div className="home-page">
-        <ProductsGrid products={products} />
+        <ProductsGrid products={products} getCartItems={getCartItems} />
       </div>
     </>
   );
