@@ -4,22 +4,33 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
-function TrackingPage({cart}) {
-  const {orderId, productId}=useParams();
-  const [order,setOrder]=useState(null);
-  useEffect(()=>{
-    const getTrackingData=async()=>{
-      const response=await axios.get(`/api/orders/${orderId}?expand=products`);
+function TrackingPage({ cart }) {
+  const { orderId, productId } = useParams();
+  const [order, setOrder] = useState(null);
+  
+  useEffect(() => {
+    const getTrackingData = async () => {
+      const response = await axios.get(`/api/orders/${orderId}?expand=products`);
       setOrder(response.data);
     }
     getTrackingData();
-  },[orderId])
-  if (!order){
+  }, [orderId])
+  
+  if (!order) {
     return null;
   }
-  const orderProduct=order.products.find((orderProduct)=>{
-    return orderProduct.productId===productId;
+  
+  const orderProduct = order.products.find((orderProduct) => {
+    return orderProduct.productId === productId;
   });
+
+  const totalDeliveryTimeMs=orderProduct.estimatedDeliveryTimeMs-order.orderTimeMs;
+  const timePassedMs=dayjs().valueOf()-order.orderTimeMs;
+  let DeliveryProgress=(timePassedMs/totalDeliveryTimeMs)*100;
+  if (DeliveryProgress>=100) {
+    DeliveryProgress=100;
+  }
+
   return (
     <>
       <title>Tracking</title>
@@ -31,7 +42,8 @@ function TrackingPage({cart}) {
           </a>
 
           <div className="delivery-date">
-            Arriving on {dayjs(orderProduct.estimatedDeliveryTimeMs).format('dddd, MMMM D')}
+            {DeliveryProgress>=100? 'Deliveried on':'Arriving on'} 
+            {dayjs(orderProduct.estimatedDeliveryTimeMs).format('dddd, MMMM D')}
           </div>
 
           <div className="product-info">
@@ -57,7 +69,7 @@ function TrackingPage({cart}) {
           </div>
 
           <div className="progress-bar-container">
-            <div className="progress-bar"></div>
+            <div className="progress-bar" style={{width:`${DeliveryProgress}%`}} ></div>
           </div>
         </div>
       </div>
