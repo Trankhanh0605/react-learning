@@ -4,7 +4,7 @@ import './OrderPage.css';
 import axios from 'axios';
 import OrdersGrid from './OrdersGrid';
 
-function OrderPage({ cart }) {
+function OrderPage({ cart, getCartItems }) {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function OrderPage({ cart }) {
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
 
-        <OrdersGrid orders={orders} />
+        <OrdersGrid orders={orders} getCartItems={getCartItems} />
       </div>
     </>
   );
