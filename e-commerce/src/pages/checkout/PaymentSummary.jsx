@@ -3,11 +3,13 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 function PaymentSummary({paymentSummary, getCartItems}) {
   const navigate=useNavigate();
+  
   const createOrder=async()=>{
     await axios.post('/api/orders');
     await getCartItems();
     navigate('/orders');
   };
+  
   return (
     <div className="payment-summary">
       <div className="payment-summary-title">
