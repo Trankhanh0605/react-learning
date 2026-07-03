@@ -27,6 +27,17 @@ function CartItemDetails({ cartItem, getCartItems }) {
     setQuantity(event.target.value);
   }
 
+  const handleKeyDown=(event)=>{
+    const keyPressed=event.key; 
+    if (keyPressed==='Enter'){
+      changeQuantity();
+    }
+    else if (keyPressed==='Escape'){
+      setQuantity(cartItem.quantity); 
+      setUpdateQuantity(false); 
+    }
+  };
+
   return (
     <>
       <img className="product-image"
@@ -44,7 +55,8 @@ function CartItemDetails({ cartItem, getCartItems }) {
             {updateQuantity ?
               <input className="input-quantity" type="text" 
               value={quantity}
-              onChange={saveLatestQuantity} /> :
+              onChange={saveLatestQuantity} 
+              onKeyDown={handleKeyDown} /> :
               <span className="quantity-label"> {cartItem.quantity}</span>
             }
           </span>
