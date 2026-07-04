@@ -1,6 +1,8 @@
 import { useState } from "react";
 import formatMoney from "../../utils/money";
 import axios from "axios";
+
+
 function Product({ product, getCartItems }) {
   const [quantity, setQuantity] = useState(1);
   const [showAddedMessage, setShowAddedMessage]=useState(false);
@@ -64,7 +66,8 @@ function Product({ product, getCartItems }) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart" style={{opacity:showAddedMessage?1:0}}>
+      <div className="added-to-cart" 
+      style={{opacity:showAddedMessage?1:0}}>
         <img src="images/icons/checkmark.png" />
         Added
       </div>

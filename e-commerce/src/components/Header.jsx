@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Header.css';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate, useSearchParams } from 'react-router';
+
 function Header({ cart }) {
   let totalQuantity = 0;
 
@@ -8,12 +9,17 @@ function Header({ cart }) {
     totalQuantity += cartItem.quantity;
   })
 
-  const [search, setSearch]=useState('')
-  const updateSearchInput=(event)=>{
+  const navigate = useNavigate();
+  const [searchParam]=useSearchParams();
+  const searchText=searchParam.get('search'); 
+  const [search, setSearch] = useState(searchText||'');
+
+  const updateSearchInput = (event) => {
     setSearch(event.target.value);
   }
-  const searchProduct=()=>{
-    console.log(search); 
+
+  const searchProduct = () => {
+    navigate(`/?search=${search}`);
   }
   return (
     <>
@@ -28,12 +34,13 @@ function Header({ cart }) {
         </div>
 
         <div className="middle-section">
-          <input className="search-bar" type="text" placeholder="Search" 
-          value={search}
-          onChange={updateSearchInput}
+          <input className="search-bar" type="text" placeholder="Search"
+            value={search}
+            onChange={updateSearchInput}
           />
 
-          <button className="search-button" onClick={searchProduct}>
+          <button className="search-button"
+            onClick={searchProduct}>
             <img className="search-icon" src="images/icons/search-icon.png" />
           </button>
         </div>
