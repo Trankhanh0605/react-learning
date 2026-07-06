@@ -53,7 +53,8 @@ function Product({ product, getCartItems }) {
       <div className="product-quantity-container">
         <select
           value={quantity}
-          onChange={selectQuantity}>
+          onChange={selectQuantity}
+          data-testid="product-quantity-selector">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
