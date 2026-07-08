@@ -2,7 +2,15 @@ import { useState } from 'react';
 import './Header.css';
 import { Link, NavLink, useNavigate, useSearchParams } from 'react-router';
 
-function Header({ cart }) {
+type HeaderProps={
+  cart: {
+    productId: string, 
+    quantity: number, 
+    deliveryOptionId: string
+  }[];
+}
+
+function Header({ cart }: HeaderProps) {
   let totalQuantity = 0;
 
   cart.forEach((cartItem) => {
