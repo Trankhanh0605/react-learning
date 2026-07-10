@@ -3,8 +3,16 @@ import { ChatMessage } from "./ChatMessage.jsx";
 
 import './ChatMessages.css';
 
-function ChatMessages ({chatMessages}) {
-  const chatMessagesRef=useRef(null);
+type ChatMessagesProps={
+  chatMessages: {
+    id: string, 
+    message: string, 
+    sender: string
+  }[];
+}
+
+function ChatMessages ({chatMessages}: ChatMessagesProps) {
+  const chatMessagesRef=useRef<HTMLDivElement>(null);
   useEffect(()=>{
     const containerElem=chatMessagesRef.current;
     if (containerElem) {
